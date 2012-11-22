@@ -1,0 +1,30 @@
+	.navbar{
+		.navbar-inner{
+			background: #009FDA;
+			border-bottom: solid 1px #109DC1;
+			.nav{
+				margin-left: 20px;
+				li{
+					a{
+						padding: 5px;
+						margin: 5px 5px 0 0;
+						@include border-radius(5px);
+						&:hover{
+							background: #009FDA;
+						};
+					}
+				}
+			}
+			.brand{
+				text-indent: -999px;
+				width: 169px;
+				height: 26px;
+				padding: 0;
+				margin: 5px 0 0 0;
+				background: url(images/IDOXlogo.png) no-repeat center center;
+			}
+		}
+	}
+
+	
+

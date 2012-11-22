@@ -1,0 +1,716 @@
+@import url("font-awesome.css");
+@import url("jquery.toastmessage.css");
+
+/*
+ *Global defaults
+ *
+ */
+ html, body {
+height: 100%;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+overflow: hidden;
+/*background-color: #EFF1F2;*/
+color: #48788B; /* default text colour */
+background-color: #f7f7f7;
+color: #555;
+text-shadow: 0 1px 0 white;
+}
+
+
+#app-body{height:100%;}
+
+
+.brand i { color: #009fda; }
+
+.brand i, /* Home Screen icons */
+/* Advanced search for demo */
+i.icon-plus-sign,
+i.icon-minus-sign { color: #009fda; }
+
+
+a {color: #009fda;}
+a:hover{text-decoration:none}
+
+.page{padding-bottom:5em;}
+
+/*Bootstrap Overrides*/
+/*.btn-primary {
+	background-image:-webkit-linear-gradient(top, #0DAAE7, #0CA2DC) !important;
+}
+.btn-primary:hover,.btn-primary:active,.btn-primary.active,.btn-primary.disabled,.btn-primary[disabled]{color:#ffffff;background-color:#0CA2DC;}
+*/
+a.thumbnail, .navbar-form input, .navbar-form select, .navbar-form .radio, .navbar-form .checkbox, #app-header .navbar-inner {
+-webkit-box-shadow: none;
+box-shadow: none;
+margin: 0;
+}
+
+.input-append .btn {padding-bottom:3px;}
+
+/*@group Helper classes (for toggling)*/
+/*Some colour classes*/
+.yellow{color:#fc3;}
+.white{color:white;}
+.idox-blue-highlight {color:#c9dd03;} /* 50% #009fda */
+
+.invisible{display:none !IMPORTANT;}
+
+.center {
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+}
+/*@end*/
+
+/*
+ *Header/Footer/Multi-page items
+ *
+ */
+#app-header, #app-footer, .panel, img:not { /*Prevents user selecting text*/
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+-webkit-touch-callout: none;
+}
+
+#app-footer{
+position:fixed;
+bottom:0;
+width:100%;
+z-index:1;
+}
+
+
+/*
+ *Slider tab idicators
+ *
+ */
+#dashboard-slider-tabs, #search-slider-tabs, #search-results-bullets{list-style:none;}
+#dashboard-slider-tabs li, #search-slider-tabs li, #search-results-bullets li{float:left;padding:5px}
+
+ .dot { /*Create dots from empty spans*/
+	display:inline-block;
+	width:8px;
+	height:8px;
+	border-radius:4px;
+	background-color:#c7c7c7;
+}
+
+.active .dot, .active .icon-time{background-color:#555 !important;} /*Highlight current tab indicator*/
+
+/*
+ * @group Home Page Widgets
+ * Widgets show a summary of content on the home screen 
+ */
+ul.nav-tabs li{float:right}
+ul.nav-tabs li.brand{float:left;}
+ul.nav-tabs li.brand,
+ul.nav-list li.brand {line-height:38px;font-size: 20px; font-weight: bold; color: #48788b;}
+/* @end */
+
+/*---- Help Overlay ----*/
+.bgCover { background:#173843; position:absolute; left:0; top:47px; display:none; overflow:hidden;z-index:500 }
+.overlayBox {
+	position:absolute;
+	display:none;
+	width:100%;
+	height:100%;
+	z-index:500 
+}
+
+/*
+ *Search Pages
+ *
+ */
+div#recentsearches ul li, div#savedsearches ul li{padding-bottom:1em; padding-top:0.5em; /*padding-left:14px; border-bottom:solid 1px black; background:url(../../img/glyphicons-halflings.png) no-repeat -456px -72px;*/}
+div#recentsearches i, div#savedsearches i{margin-left:10em;}
+
+/*
+ * @group Search Results
+ */
+ .grid-view, .list-view {
+    -webkit-transition: -webkit-transform .2s linear;
+    -moz-transition: -moz-transform .2s linear;
+    -o-transition: -o-transform .2s linear;
+    -ms-transition: -ms-transform .2s linear;
+    transition: transform .2s linear;
+}
+
+.grid-view{margin:1em 0;}
+ 
+ /*
+ * @group Individual Search result styling for grid view
+ */
+.search-result {
+	position:relative;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.search-result span { display:block;text-align:left;color: #999}
+
+span.thumb-info  *{
+	display:inline-block;
+	padding:3px 5px;
+	font-weight:bold;
+	}
+
+.search-result img {
+	border:1px solid #999;
+	margin-bottom:5px;
+}
+
+.search-result .thumb-title {
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.thumb-title h4 {
+    margin: 0;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    font-size: 90%;
+}
+
+.thumb-title h4+span { color: #999 }
+
+.thumb-select-box{
+	position:absolute;
+	top:0px;
+	right:9px;
+	z-index:1000;
+	padding:2px 2px 0px 2px;
+	background:#999;
+	opacity:0.75;
+	height:26px;
+	width:26px;
+}
+
+/*input[type="checkbox"]{padding:5px;}*
+
+/*@group Checkboxes*/
+
+.regular-checkbox {
+	display: none;
+}
+
+.regular-checkbox + label {
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position:relative;
+	line-height:17px
+}
+
+.regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.regular-checkbox:checked + label {
+	background-color: #e9ecee;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #009FDA;
+}
+
+.regular-checkbox:checked + label:after {
+	content: '\2714';
+	font-size: 30px;
+	position: absolute;
+	top: 1px;
+	left: 3px;
+	color: #000;
+}
+
+.big-checkbox + label {
+	padding: 10px;
+	margin:0;
+}
+
+.big-checkbox:checked + label:after {
+	font-size: 26px;
+	top:3px;
+	left: 0px;
+}
+
+/* @end */
+ 
+/*
+* @group TWIS overrides
+*
+*/
+#wrapper, #messages-wrapper{
+position: absolute;
+right: 0;
+left: 0;	
+z-index:1;
+width: 100%;
+height:100%;
+bottom: 45px;
+top: 47px;
+padding-left: 0;	
+}
+
+#slider, #msgSlider{
+	position:relative;
+	z-index:1;
+	float:left;
+	width:400%;
+	height:100%;
+	-webkit-transform:translate3d(0,0,0);
+}
+
+#msgSlider{height:auto;}
+
+.page {
+	position:relative;
+	-webkit-box-sizing:border-box;
+	z-index:2;
+	display:block;
+	float:left;
+	width:25%;
+	min-height:100%;
+	/*padding:1em;*/
+	padding-top:20px;
+	-webkit-transform:translate3d(0,0,0);
+}
+
+.page.no-pills { padding-top: 0 }
+
+/*@end*/
+ 
+/*@group Messages*/
+/*@group Messages-Window*/
+div#chat {
+	display:none;
+	position:relative;
+	top:0;
+	left:0;
+  width:100%;
+  background-color: #f3f3f3;
+  z-index:1000;
+}
+
+.messages-header {
+    -webkit-box-shadow: rgba(0, 0, 0, 0.246094) 0 1px 3px 0, rgba(0, 0, 0, 0.0976563) 0 -1px 0 0 inset;
+    box-shadow: rgba(0, 0, 0, 0.246094) 0 1px 3px 0, rgba(0, 0, 0, 0.0976563) 0 -1px 0 0 inset;
+    /*background-color: rgb(44, 44, 44);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#26ADDF), to(#009FDA));*/
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#555), to(#f3f3f3));
+	border-color: #31BDF1 #009FDA #0076B2 #009FDA;
+    /*background-image: -webkit-linear-gradient(top, rgb(51, 51, 51), rgb(34, 34, 34));
+    background-image: -moz-linear-gradient(top, rgb(51, 51, 51), rgb(34, 34, 34));
+    background-image: -o-linear-gradient(top, rgb(51, 51, 51), rgb(34, 34, 34));
+    background-image: -ms-linear-gradient(top, rgb(51, 51, 51), rgb(34, 34, 34));
+    background-image: linear-gradient(top, rgb(51, 51, 51), rgb(34, 34, 34));*/
+    color: #f7f7f7;
+	text-shadow:none;
+    padding: 10px;
+    height: 85px;
+}
+
+#messages-wrapper {
+	top: 90px;
+	margin-left: 1.5em;
+	width:95%;
+	height:auto;
+    -ms-overflow-y: auto;
+    overflow-y: auto;
+	box-shadow:inset 2px 0 10px #555555;
+	margin-bottom:60px;	
+}
+
+.messages{width:100%;}
+
+/*@end*/
+/*@group Messages Reply field*/
+.message-reply {
+	display:block;
+    width: 100%;
+    position: absolute;
+	bottom:52px;
+	right:1em;
+	z-index:2;
+	background-color: whiteSmoke;
+	text-align:right;
+	margin-left:0.5em;
+}
+
+#message-reply-form{margin:0.5em;}
+
+#message-reply-field {
+    width: 75%;
+    height: 30px;
+    -webkit-resize: none;
+    -moz-resize: none;
+    resize: none;
+    -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    -o-transition: height 0.3s;
+    -ms-transition: height 0.3s;
+    transition: height 0.3s;
+    -ms-overflow-y: auto;
+    overflow-y: auto;
+    max-height: 140px;
+    border-radius: 1px;
+}
+
+#message-reply-button {margin-left:5px;}
+
+/*@end*/
+/*@group Message Body*/
+#messages-wrapper .messages .message {
+    margin: 10px;
+    padding: 10px;
+    border-top: solid 1px #fff;
+    -webkit-transition: opacity .2s linear;
+    -moz-transition: opacity .2s linear;
+    -o-transition: opacity .2s linear;
+    -ms-transition: opacity .2s linear;
+    transition: opacity .2s linear;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity = 100);
+    opacity: 1;
+}
+
+.message-body {clear: both;}
+.to {text-align: right;}
+.to header.box{color: #212492;}
+
+.from {}
+.from header.box{color:#CCCCCC;}
+
+#onlineStatus.online{color:#006400;font-weight:bold;}
+
+/*@end*/
+/*@end*/  
+ 
+ /* = CAB DEMO BRANDING
+---------------------------------------------------------------------*/
+
+/*@ Title bar */
+.badge-info { background-color: #212492 }
+
+#app-header .navbar-inner, #app-footer .navbar-inner {
+border-radius: 0px;
+}
+
+.slide-up {
+    position:relative;
+    top: -100px;   
+	-webkit-transition:all 1s ease;
+}
+
+.slide-down {
+    position:relative;
+    top: 0px;   
+	-webkit-transition:all 1s ease;
+}
+
+.navbar-inverse .navbar-inner { /*Bootstrap Override*/
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#26ADDF), to(#009fda));
+	/*background-image: -webkit-gradient(linear, left top, left bottom, from(#364562), to(#232c41)); de-saturated vibrant blue*/ 
+	border-color: #31bdf1 #009fda #0076b2 #009fda;
+	box-shadow: 0 1px 1px #98a9af;
+	height: 45px;
+	/*padding-left: 7px;
+	padding-right: 7px;*/
+	color:#F7F7F7;
+	text-shadow: 0 -1px 0 #0076B2;
+}
+/* Page title */
+.navbar-inner .brand { /* Bootstrap Override */
+	line-height: 43px;
+	margin-left: 0;
+	font-size: 24px;
+	color: #f7f7f7;
+	text-rendering: optimizelegibility;
+	text-shadow: 0 -1px 0 #24434D;
+	text-shadow: 0 -1px 0 #0076b2;
+	/*position: absolute; top:0; left:5 Fix logo position when slide in appears*/
+	
+	/*center text*/
+	width:100%;
+	display:block;
+}
+
+.subnav {
+	height: 40px;
+	padding-top: 3px;
+	background-color: #f3f3f3;
+	border-bottom: 1px solid #E0E0E0;
+	-webkit-box-shadow: 0 1px 0 white;
+}
+
+#idox-logo {
+position:absolute;
+top: -3px;
+left: 8px;
+}
+
+/*@ Icons */
+
+/* absolutely position right/left button groups to allow page heading to center correctly */
+.left {
+	position: absolute;
+	top: 6px;
+	left: 0.5em;
+}
+
+.right {
+	position: absolute;
+	top: 6px;
+	right: 1.5em;
+}
+.top-buttons {line-height: 30px;}
+.top-buttons, .top-buttons a { color: #f7f7f7; }
+.top-buttons i { border: 1px solid transparent; padding: 3px 10px 1px 10px; text-shadow: 0 -1px 0 #0076b2; line-height:25px;}
+
+ /* Pressed state */
+ .top-buttons i:active,
+ .top-buttons i.pressed  {
+	 background-color: #009fda;
+	 box-shadow: inset 0 1px 1px rgba(0, 0, 0, .25), 0 1px 0 rgba(255, 255, 255, 0.25);
+	 border-radius: 2px;
+ }
+
+.menu-btn {
+font-size: 25px;
+padding-left: 5px;
+padding-right: 5px;
+display: inline;
+}
+
+.idox-icon-filter {margin-left: 15px;}
+
+/*@group Breadcrumb*/
+.breadcrumb {
+	background-color: #f9f9f9; 
+	box-shadow: 0 1px 2px #CDD4DA; 
+	color: #62747C;
+	border-radius: 0;
+	font-size: 110%;
+}
+/*@end*/
+
+/* Image shadow effects */
+.search-result img,
+.users .profile .picture img {
+	border: 1px solid #DCDBDC;
+	box-shadow: 0 1px 5px #ccc;
+}
+
+/*@ Custom button (idox style) */
+
+.btn-custom {
+  background-color: hsl(200, 100%, 35%) !important;
+  background-repeat: repeat-x;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #38bcfe), color-stop(100%, #009fda));
+  background-image: -webkit-linear-gradient(top, #38bcfe, #009fda);
+  border-color: #0076b2 #0076b2 hsl(200, 100%, 28.5%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.42);
+  -webkit-font-smoothing: antialiased;
+}
+
+/*@ Icon styling */
+
+/* 18px */
+.home-widget li.brand i,
+i.icon-remove-sign { 
+	font-size: 18px;
+}
+
+/* 22px */
+table#inbox-feed-table td i.icon-remove-sign,
+table.list-view td i.icon-info-sign {
+	font-size: 22px;
+}
+
+/* 24px */
+.thumb-info i,
+table.list-view td i.icon-star-empty,
+table.list-view td i.icon-star,
+#inbox-widget i,
+#docs-widget i,
+#discussions-widget i { 
+	font-size: 24px; 
+}
+
+/* Unread email */
+strong i.icon-envelope-alt { color: #555; }
+
+td i.icon-chevron-right { font-size: 14px !important; }
+
+#discussions-widget td i.icon-comment-alt { color: #c7c7c7 }
+#discussions-widget td i.icon-comment-alt.online { color: #3c3; } /* green */
+
+/*@ Home screen widgets */
+
+#inbox-widget .nav-tabs,
+#discussions-widget .nav-tabs,
+#inbox-widget table,
+#docs-widget .nav-tabs,
+#recent-searches-widget .nav-tabs,
+#saved-searches-widget .nav-tabs { margin-bottom: 0; }
+
+
+/*@ Well */
+
+.well {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: transparent;
+	border: 0;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+}
+
+/*@ Tables */
+
+.table-naked td { border: 0; } /* Remove default styles */
+
+th { color: #48788B; color: #999; }
+td { color: #555 }
+
+/* Checkbox selected row */
+tr.info td { background-color: #D9EDF7 !important; }
+
+tr:active { background-color: #E5F5FB !important; } /* 10% of 009fda */
+tr:active td { -webkit-box-shadow: 0 0 0 #E5F5FB !important; text-shadow:none; }
+tr:active td i.icon-chevron-right { color: #009fda }
+ 
+.table-striped tbody tr:nth-child(odd) td, .table-striped tbody tr:nth-child(odd) th {
+background-color: transparent;
+}
+
+.table-headerless tr:first-child td { border-top: 0 !important; }
+
+.table-striped th, .table-striped td  {
+	border-bottom: 1px solid #E0E0E0;
+}
+
+/* beveled row style */
+.table-striped th, .table-striped td {
+	border-bottom: 1px solid #fff;
+	-webkit-box-shadow: 0 -1px 0 #e0e0e0;
+}
+
+.table-striped tr:last-child td { 
+border-bottom: 1px solid #e7e7e7;
+}
+
+/* table icons */
+td i {
+	padding: 0 5px;
+	color: #999;  
+}
+
+/*@ Nav tabs */
+
+.nav-tabs {
+	border-bottom: 1px solid #E0E0E0;
+	-webkit-box-shadow: 0 1px 0 white;
+}
+
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+color: #555;
+background-color: transparent;
+border: 1px solid transparent;
+border-bottom-color: transparent;
+cursor: default;
+}
+
+/*@ Nav list */
+
+.nav-list li.brand {
+	border-bottom: 1px solid #E0E0E0;
+	-webkit-box-shadow: 0 1px 0 white;
+	margin-bottom: 10px;
+}
+
+.nav-list li { padding-top: 5px; padding-bottom: 5px }
+
+/*.nav-list a { color: #555; }*/
+
+/*@ Search results */
+
+.thumbnail { 
+	border: 0;
+	box-shadow: none;
+ }
+ 
+/*@ User thumbnails */
+
+.users {display:inline-block;}
+.users p{margin:0;text-align:center; font-size:90% }
+.users .profile {float:left; margin-top: 20px; padding: 0 10px 0 0; width:auto }
+.users .profile .picture{ display:block}
+.users .profile .picture img{border:1px solid #999; padding:1px; margin:0 auto; display:block}
+.users .profile .name p {padding-top: 10px; color:#555}
+.users .profile .jobTitle p {color:#999}
+
+
+#chat {
+	position: absolute;
+	z-index: 1000;
+	background-color: #f3f3f3;
+}
+
+/* Adapt bootstrap media query to stack home screen widgets at portrait orientation */
+@media (max-width: 769px) {
+	body {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+	
+	/* Force items to stack at iPad portrait orientation */
+    body.home-screen .row-fluid [class*="span"] {
+        display: block;
+        float: none;
+        width: auto;
+        margin-left: 0;
+		margin-bottom: -40px;
+    }
+	
+	#wrapper{top:84px}
+}
+
+/*@media (max-width:530px){
+	#app-header span.brand{
+		display:none;
+	}
+	#app-header .breadcrumb{
+		display:block !important;
+		visibility:visible;
+	}
+	
+	#wrapper{top:84px}
+}
+
+@media (max-width:220px){
+	#app-header .breadcrumb{
+		display:none !important;
+	}
+}*/
+
+/* Ellipsis text overflow for home screen table text */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+  .ellipsis { max-width: 300px; white-space: nowrap; overflow:hidden; text-overflow:ellipsis }
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape) {
+  .ellipsis { max-width: 120px; white-space: nowrap; overflow:hidden; text-overflow:ellipsis }
+}
