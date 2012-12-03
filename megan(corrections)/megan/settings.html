@@ -2,13 +2,28 @@
 <html>
 <head>
 
+    <meta charset="utf-8">
+
     <title>Document Managers App</title>
 
+   <!-- OLD  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href = 'IDOXCSS.css' rel = 'stylesheet'/>
+ 
+ 	<script src = 'jqtouch.js'></script>
+ 	<script src="jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src = 'save.js'></script>  -->
+	
+	<!-- New -->
     <link href = 'css/bootstrap.css' rel = 'stylesheet'>
     <link href = 'css/bootstrap-responsive.css' rel = 'stylesheet'>
 	<link type='text/css' rel='stylesheet' media='screen' href='css/IDOXCSS.css' />
 	<link type="text/css" rel="stylesheet" media="screen" href="themes/jqt/theme.css" />
-	<link type='text/css' rel='stylesheet' media='screen' href='css/jqtouch.css' />
+	<link type='text/css' rel='stylesheet' media='screen' href='jqtouch/jqtouch.css' />
 	<link rel="apple-touch-startup-image" href="IDOXlogo.png" />
 	<script type="text/javascript" src="jqtouch/jquery.js"></script>
 	<script type='text/javascript' src='jqtouch/jqtouch.js'></script>
@@ -38,28 +53,26 @@
      <ul class = 'nav'>
       <li><a href = 'index2.html'>Home</a></li>
       <li><a href = 'about.html'>About</a></li>
-      <li class = 'active'><a class = 'left slideup' href = 'settings.html' rel = 'icon'><img name="setting" src="images/settings.png" align='right' border='0' width='30' height='30' vspace='0' hspace='0'></a></li>
+      <li><a class="left slideup" href="#settings" rel="icon"><img name="setting" src="images/settings.png" align='right' border='0' width='30' height='30' vspace='0' hspace='0'></a></li>
      </ul>
     
     </div>
    </div>
   </div>
  </div>
- <div id = 'settings'>
-   
+
+   <div id="settings">
     <h2>Settings</h2>
-    
     <div class = 'navbar navbar-fixed-top'>
-    
+
     <form method='post' name='MainForm' class = 'well'>
 
     	<ul class='rounded'>
-		<li><input type='text' placeholder='Name' name='name' id='name' autocapitalize='on' autocorrect='off' autocomplete='off'/></li></label>
-		<li><input type='email' placeholder='Email' name='email' id='email' autocapitalize='off' autocorrect='off' autocomplete='off'/></li></label>
-		<li><input type='text' maxlength='11' placeholder='Telephone' name='telephone' id='telephone'/></li></label><br>
+		<li><input type='text' placeholder='Name' name='name' id='name' autocapitalize='on' autocorrect='off' autocomplete='off'/></li>
+		<li><input type='email' placeholder='Email' name='email' id='email' autocapitalize='off' autocorrect='off' autocomplete='off'/></li>
+		<li><input type='text' maxlength='11' placeholder='Telephone' name='telephone' id='telephone'/></li><br>
 
-		<a class = 'btn' href = 'notifications.html' name = 'notifications'>Notifications</a>
-		<a class = 'btn' href = 'preview.html' name = 'preview'>Preview Document</a>
+	
 		
 		<li>Set Profession</li>
 
@@ -82,9 +95,7 @@
 	</ul>
 
     </form>
-    
- </div>
- </div>
+</div>
  
  <footer>
  
@@ -94,3 +105,4 @@
 
 </body>
 </html>
+    
