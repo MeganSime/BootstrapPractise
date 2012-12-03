@@ -19,7 +19,7 @@ function saveSettings(){
 var jQT=$.jQTouch({
 	icon:"kilo.png",
 	statusBar:"black",
-	preloadImages:["images/settings.png","images/messages.png","images/search.png","images/pdfthumb.jpg","IDOXlogo.png"],
+	preloadImages:["images/settings.png","images/messages.png","images/search.png","images/pdfthumb.jpg","IDOXlogo.png","images/notifications.png"],
 	startupScreen:"IDOXlogo.png"
 });
 
